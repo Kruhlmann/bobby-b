@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
     s.name          = 'bobby-b'
-    s.version       = '0.0.3'
+    s.version       = '0.0.4'
     s.date          = '2020-01-16'
     s.summary       = "Bobby B bot replacement"
     s.description   = ""
