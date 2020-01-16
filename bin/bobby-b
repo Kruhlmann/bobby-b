@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+require "optparse"
+require "ostruct"
+require "bobby-b/bobby"
+include Bobby
+
+options = OpenStruct.new
+OptionParser.new do |parser|
+  parser.banner = "Usage: bobby-b [options]"
+  parser.on("-k", "--discord-key=DISCORDKEY", "Discord API bot key"){ |k| options[:api_key] = k }
+end.parse!
+
+Bobby.start(options)
