@@ -75,8 +75,11 @@ module Bobby
 
     bot = Discordrb::Bot.new  token: options.api_key
     bot.message() do |event|
+      puts "Message recieved: #{event.message}"
       if "#{event.message}".include? "#{bot.bot_user.id}"
-        event.respond(responses.sample)
+        response = responses.sample
+        event.respond(response)
+        puts "Responded with #{response}"
       end
     end
     bot.run
