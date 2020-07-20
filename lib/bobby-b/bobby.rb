@@ -35,7 +35,7 @@ class Bobby
 
   def process_queue
     now = Time.now.to_f
-    next unless !@queue.empty? && now - @last_message_time >= @cooldown
+    return if !@queue.empty? || now - @last_message_time >= @cooldown
 
     send_newest_message
     @last_message_time = now
