@@ -7,8 +7,4 @@ Bobby B replacement as the old one died
 
 ## Setup
 
-<p align="center">
-  <a href="https://discordapp.com/oauth2/authorize?client_id=658702873542262832&scope=bot&permissions=0">
-    <img src="doc/connect.png" />
-  </a>
-</p>
+[Connect](https://discordapp.com/oauth2/authorize?client_id=667367466367975434&scope=bot&permissions=0)
