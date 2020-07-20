@@ -1,14 +1,15 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
 
-require "optparse"
-require "ostruct"
-require "bobby-b/bobby"
-include Bobby
+require 'optparse'
+require 'ostruct'
+require 'bobby-b/bobby'
 
 options = OpenStruct.new
 OptionParser.new do |parser|
-  parser.banner = "Usage: bobby-b [options]"
-  parser.on("-k", "--discord-key=DISCORDKEY", "Discord API bot key"){ |k| options[:api_key] = k }
+  parser.banner = 'Usage: bobby-b [options]'
+  parser.on('-k', '--discord-key=DISCORDKEY', 'Discord API bot key') { |k| options[:api_key] = k }
+  parser.on('-f', '--responses-file=RESPONSES_FILE', 'List of responses') { |k| options[:responses_file] = k }
 end.parse!
 
-Bobby.start(options)
+Bobby.new(options).start
