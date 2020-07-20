@@ -33,16 +33,20 @@ class Bobby
     puts "Responded with #{response}"
   end
 
+  def process_queue
+    now = Time.now.to_f
+    next unless !@queue.empty? && now - @last_message_time >= @cooldown
+
+    send_newest_message
+    @last_message_time = now
+  end
+
   def start_queue
     Thread.new do
       puts 'Message queue started'
       loop do
         sleep 0.1
-        now = Time.now.to_f
-        next unless !@queue.empty? && now - @last_message_time >= @cooldown
-
-        send_newest_message
-        @last_message_time = now
+        process_queue
       end
     end
   end
