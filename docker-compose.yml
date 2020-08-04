@@ -1,0 +1,10 @@
+version: "3.7"
+
+services:
+    bobby-b:
+        build:
+            context: .
+            dockerfile: docker/Dockerfile
+        container_name: bobby-b
+        restart: unless-stopped
+        command: sh -c "ruby -Ilib /usr/app/bin/bobby-b -k your_token"
