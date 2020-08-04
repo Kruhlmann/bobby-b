@@ -7,4 +7,4 @@ services:
             dockerfile: docker/Dockerfile
         container_name: bobby-b
         restart: unless-stopped
-        command: sh -c "ruby -Ilib /usr/app/bin/bobby-b -k your_token"
+        command: sh -c "ruby -Ilib /usr/app/bin/bobby-b -k your_token -f /usr/app/responses.txt"
