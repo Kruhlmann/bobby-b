@@ -11,4 +11,4 @@ Bobby B replacement as the old one died
 
 ## Building locally
 
-Only confirmed to run with ruby version 2.6 or later.
+Only confirmed to run with ruby version 2.7

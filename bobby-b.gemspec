@@ -11,5 +11,6 @@ Gem::Specification.new do |s|
   s.files         = ['lib/bobby-b/bobby.rb']
   s.homepage      = 'https://github.com/Kruhlmann/bobby-b'
   s.license       = 'GPL-3.0-or-later'
-  s.executables   = ['bobby-b']
+  s.required_ruby_version = '2.7'
+  s.executables = ['bobby-b']
 end
