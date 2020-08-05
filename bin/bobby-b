@@ -5,11 +5,31 @@ require 'optparse'
 require 'ostruct'
 require 'bobby-b/bobby'
 
-options = OpenStruct.new
-OptionParser.new do |parser|
-  parser.banner = 'Usage: bobby-b [options]'
-  parser.on('-k', '--discord-key=DISCORDKEY', 'Discord API bot key') { |k| options[:api_key] = k }
-  parser.on('-f', '--responses-file=RESPONSES_FILE', 'List of responses') { |k| options[:responses_file] = k }
-end.parse!
+def validate_command_line_arguments(arguments)
+  has_api_key = arguments.key? :key
+  has_responses_file = arguments.key? :responses
 
-Bobby.new(options).start
+  has_api_key && has_responses_file
+end
+
+def extract_command_line_arguments
+  options = {}
+  parser = OptionParser.new
+  parser.banner = 'Usage: bobby-b [options]'
+  parser.on('-k KEY', '--key=KEY', 'Discord API key', String)
+  parser.on('-f FILE', '--responses=FILE', 'List of responses file', String)
+  parser.parse!(into: options)
+  options
+end
+
+def main
+  arguments = extract_command_line_arguments
+  puts arguments
+  arguments_are_valid = validate_command_line_arguments(arguments)
+
+  raise 'Invalid arguments' unless arguments_are_valid
+
+  Bobby.new(arguments).start
+end
+
+main

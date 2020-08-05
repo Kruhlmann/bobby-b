@@ -2,13 +2,14 @@
 
 require 'discordrb'
 
+# Bobby B discord bot instance.
 class Bobby
   def initialize(options)
     @queue = []
     @last_message_time = 0
     @cooldown = 0.5
-    @discord_token = options.api_key
-    @responses = File.readlines(options.responses_file)
+    @discord_token = options[:key]
+    @responses = File.readlines(options[:responses])
   end
 
   def start
@@ -30,10 +31,9 @@ class Bobby
     response = @responses.sample
     event = @queue.pop
     event.respond(response)
-    puts "Responded with #{response}"
   end
 
-  def process_queue
+  def process_queue_item
     now = Time.now.to_f
     return if @queue.empty? || now - @last_message_time < @cooldown
 
@@ -43,10 +43,9 @@ class Bobby
 
   def start_queue
     Thread.new do
-      puts 'Message queue started'
       loop do
         sleep 0.1
-        process_queue
+        process_queue_item
       end
     end
   end

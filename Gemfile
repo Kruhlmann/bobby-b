@@ -1,4 +1,7 @@
-source "http://rubygems.org"
+# frozen_string_literal: true
+
+source 'http://rubygems.org'
 ruby RUBY_VERSION
 
-gem "discordrb"
+gem 'discordrb'
+
