@@ -9,6 +9,10 @@ Bobby B replacement as the old one died
 
 [Connect](https://discordapp.com/oauth2/authorize?client_id=667367466367975434&scope=bot&permissions=0)
 
+## Installing locally
+
+See [ruby gem](https://github.com/Kruhlmann/bobby-b/packages/322179)
+
 ## Building locally
 
 Only confirmed to run with ruby version 2.7
