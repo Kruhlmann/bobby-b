@@ -43,7 +43,7 @@ class Bobby
     return if @queue.empty? || is_on_cooldown
 
     send_newest_message
-    @last_message_time = now
+    @last_message_time = Time.now.to_f
   end
 
   def start_queue
