@@ -32,11 +32,15 @@ class Bobby
     event = @queue.pop
     event.respond(response)
   end
-
-  def process_queue_item
+  
+  def is_on_cooldown
     now = Time.now.to_f
     bot_is_on_cooldown = now - @last_message_time < @cooldown
-    return if @queue.empty? || bot_is_on_cooldown
+    return bot_is_on_cooldown
+  end
+
+  def process_queue_item
+    return if @queue.empty? || is_on_cooldown
 
     send_newest_message
     @last_message_time = now
