@@ -35,7 +35,8 @@ class Bobby
 
   def process_queue_item
     now = Time.now.to_f
-    return if @queue.empty? || now - @last_message_time < @cooldown
+    bot_is_on_cooldown = now - @last_message_time < @cooldown
+    return if @queue.empty? || bot_is_on_cooldown
 
     send_newest_message
     @last_message_time = now
