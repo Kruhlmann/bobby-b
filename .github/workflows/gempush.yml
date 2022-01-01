@@ -6,9 +6,11 @@ on:
       - publish
 
 jobs:
-  build:
-    name: Publish gem
-    uses: dawidd6/action-publish-gem@v1.2.0
-    with:
-      api_key: ${{secrets.RUBYGEMS_AUTH_TOKEN}}
-      github_token: ${{secrets.PERSONAL_ACCESS_TOKEN}}
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: dawidd6/action-publish-gem@v1.2.0
+      - name: Publish gem
+        with:
+          api_key: ${{secrets.RUBYGEMS_AUTH_TOKEN}}
+          github_token: ${{secrets.PERSONAL_ACCESS_TOKEN}}
