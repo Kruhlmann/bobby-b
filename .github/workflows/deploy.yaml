@@ -19,8 +19,7 @@ jobs:
                   password: ${{ secrets.DOCKER_PASS }}
             - name: Publish to registry
               run: |
-                  docker build --cache-from $ONBUILD -t $ONBUILD -f docker/Dockerfile .
+                  docker build --cache-from $IMAGE -t $IMAGE -f docker/Dockerfile .
                   docker push $IMAGE
               env:
-                  ONBUILD: kruhlmann/bobby-b:onbuild
                   IMAGE: kruhlmann/bobby-b
