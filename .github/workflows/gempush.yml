@@ -9,8 +9,9 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: dawidd6/action-publish-gem@v1.2.0
+      - uses: actions/checkout@v2
       - name: Publish gem
+        uses: dawidd6/action-publish-gem@v1.2.0
         with:
           api_key: ${{secrets.RUBYGEMS_AUTH_TOKEN}}
           github_token: ${{secrets.PERSONAL_ACCESS_TOKEN}}
