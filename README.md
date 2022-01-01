@@ -16,3 +16,4 @@ See [ruby gem](https://github.com/Kruhlmann/bobby-b/packages/322179)
 ## Building locally
 
 Only confirmed to run with ruby version 2.7
+
