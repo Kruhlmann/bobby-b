@@ -1,4 +1,4 @@
-# classic-parses
+# bobby-b
 
 [![Discord Server](https://img.shields.io/discord/572880907682447380%20.svg?logo=discord&style=for-the-badge)](https://discord.gg/https://discord.gg/Y5eA3dW)
 [![Maintainability](https://img.shields.io/codeclimate/maintainability/Kruhlmann/bobby-b.svg?style=for-the-badge)](https://codeclimate.com/github/Kruhlmann/bobby-b/maintainability)
